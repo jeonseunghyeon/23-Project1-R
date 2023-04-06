@@ -1,5 +1,83 @@
 <h1>전승현</h1>
 
+<h2>[04월 06일] 학습내용</h2>
+
+## 
+
+<h3>데이터프레임 개념</h3>
+
+```bash
+행과 열을 갖는 2차원 표의 형태로 데이터를 저장하는 것을 R에서는 '데이터프레임(Data Frame)'이라고 합니다. 데이터프레임은 변수 역할을 하는 컬럼(column)과 관측값(observation, record)을 나열하는 행(row)를 가지고 있습니다.  다른 프로그램에서 표, 테이블(table)이라고 일컫는 것이 R에서는 데이터프레임입니다. 
+```
+
+<h3>iris</h3>
+
+
+```bash
+nrow(iris)
+[1] 150
+
+ncol(iris)
+[1] 5
+
+```
+
+```bash
+> head(iris,5)
+  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1          5.1         3.5          1.4         0.2  setosa
+2          4.9         3.0          1.4         0.2  setosa
+3          4.7         3.2          1.3         0.2  setosa
+4          4.6         3.1          1.5         0.2  setosa
+5          5.0         3.6          1.4         0.2  setosa
+
+```
+
+
+
+
+<h3>데이터프레임 매트릭스로 변환</h3>
+
+```bash
+데이터프레임 정의
+> md=data.frame(C1=c(1,2,3),C2=c(10,20,30))
+> md
+  C1 C2
+1  1 10
+2  2 20
+3  3 30
+
+```
+
+```bash
+매트릭스
+> md_m=as.matrix(md)
+> md_m
+     C1 C2
+[1,]  1 10
+[2,]  2 20
+[3,]  3 30
+
+```
+
+```bash
+변환
+> class(md_m)
+[1] "matrix" "array"
+
+```
+
+```bash
+데이터 입력
+> myData = c("dog", "pig", "cat", "horse")
+> myData
+[1] "dog"   "pig"   "cat"   "horse"
+
+```
+
+
+
+
 <h2>[03월 30일] 학습내용</h2>
 
 ## 벡터
