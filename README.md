@@ -1,5 +1,62 @@
 <h1>전승현</h1>
 
+<h2>[04월 13일] 학습내용</h2>
+
+## 
+
+<h3>파일 입출력</h3>
+
+TXT 파일은 read.table ( ) 함수를 사용하여 데이터 프레임으로 가져올 수 있습니다. read.table ( ) 함수 사용 형식은 다음과 같습니다.
+
+```bash
+read.table(“원시 데이터“, header = FALSE, skip = 0, nrows = -1, sep = “”, … )
+
+함수에 원시 데이터 파일 경로를 넣어주고, 필요하다면 옵션을 지정합니다. 옵션을 지정하면 원시 데이터를 원하는 데이터 프레임 형태로 가져올 수 있습니다. 아래는 read.table ( ) 함수에서 자주 사용 하는 옵션입니다.
+```
+
+*데이터 구분자 지정하여 가져오기
+
+```bash
+ex_data4 <- read.table("C:/Rstudy/data_ex1.txt", encoding = "EUC-KR", fileEncoding = "UTF-8", header = TRUE, sep = ",")
+View(ex_data4)
+```
+
+```bash
+*CSV 파일 가져오기
+
+ex_data <-read.csv(“C:/Rstudy/data_ex.csv”)
+View(ex_data)
+```
+
+```bash
+*엑셀 파일 가져오기
+excel_data_ex <- read_excel("C:/Rstudy/data_ex.xlsx")
+View(excel_data_ex)
+
+```
+
+<h3>반복문</h3>
+
+```bash
+> for문
+
+for(i in 1:10){ 
+  print(i) 
+}
+
+```
+
+```bash
+> while문
+i<-1 
+while(i < 11){ 
+  cat("\n",i) 
+  i<-i+1 
+}
+
+```
+
+
 <h2>[04월 06일] 학습내용</h2>
 
 ## 
