@@ -1,5 +1,112 @@
 <h1>전승현</h1>
 
+<h2>[05월 18일] 학습내용</h2>
+
+## 
+
+<h3>벡터 정렬</h3>
+
+
+
+<h5>Sort함수</h5>
+
+a에 랜덤한 숫자 벡터를 선언하고
+
+sort함수를 이용해 아래와 같이 정렬할 수 있습니다. 
+
+ 
+
+내림차순을 하기 위해서는 decreasing = T 옵션을 넣어주어야 하고
+
+ 
+
+오름차순을 위해서는 옵션없이 사용하시면 됩니다.
+
+
+```R
+a<-c(3,5,6,1,8,9,11,13) 
+sort(a,decreasing = T) 
+sort(a) 
+sort(a,decreasing = F)
+```
+
+
+<h5>order함수</h5>
+
+order함수는 vector값들의 순서 index를 반환합니다.
+
+a[order(a)] # 는 오름차순이고
+
+a[order(-a)] # 는 내림차순을 의미합니다.
+
+ 
+```R
+a 
+order(a)  
+## 4 a의 네번째 값이 첫번째로 
+## 1 a의 첫번째 값이 두번째로 
+## 2 a의 두번째 값이 세번째로... 
+
+order(-a) 
+a[order(a)] ## 오름차순 
+a[order(-a)] ## 내림차순
+
+```
+
+<h3>샘플링</h3>
+많은 데이터 중 일부를 선택해야 할 때가 있습니다. 그 경우에 처리하는 기술을 샘플링이라고 합니다. 비복원 추출을 통해 중복되지 않은 랜덤한 값을 추출할 수 있습니다
+```R
+ x <- 1:100
+ 
+ # x 에서 10개의 수를 임의로 추출 (비복원 추출) 
+ y <- sample(x, size=10, replace = FALSE)
+ 
+ y
+ # [1] 37 43 18 95 29 51 52 28 88 67
+```
+
+<h3>조합</h3>
+combn 함수를 통해 조합을 만들 수 있습니다. 아래 예제를 참고해보세요. 경우의 수를 만들어주어 원하는 데이터를 만들어낼 수 있습니다.
+
+
+```R
+
+combn(5,3) # 5개중 3개를 뽑는 조합
+ #      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+ # [1,]    1    1    1    1    1    1    2    2    2     3
+ # [2,]    2    2    2    3    3    4    3    3    4     4
+ # [3,]    3    4    5    4    5    5    4    5    5     5
+ 
+ x = c("red","green","blue","black","white")
+ 
+ com <- combn(x,2) # x 의 원소를 2개씩 뽑는 조합
+ 
+ com
+ #      [,1]    [,2]   [,3]    [,4]    [,5]    [,6]    [,7]    [,8]    [,9]   
+ # [1,] "red"   "red"  "red"   "red"   "green" "green" "green" "blue"  "blue" 
+ # [2,] "green" "blue" "black" "white" "blue"  "black" "white" "black" "white"
+ #      [,10]  
+ # [1,] "black"
+ # [2,] "white"
+ 
+ for(i in 1:ncol(com)) {   
+   cat(com[,i], "\n")   
+ }
+ # red green 
+ # red blue 
+ # red black 
+ # red white 
+ # green blue 
+ # green black 
+ # green white 
+ # blue black 
+ # blue white 
+ # black white
+
+```
+
+
+
 
 <h2>[05월 04일] 학습내용</h2>
 
