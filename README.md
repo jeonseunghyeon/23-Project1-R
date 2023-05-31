@@ -1,5 +1,68 @@
 <h1>전승현</h1>
 
+<h2>[05월 25일] 학습내용</h2>
+
+## 
+
+<h3>방사형 차트</h3>
+
+방사형 차트(Radar Chart)는 어떤 측정 목표에 대한 평가항목이 여러 개일 때 항목 수에 따라 원을 같은 간격으로 나누고, 중심으로부터 일정 간격으로 동심으로 척도를 재는 칸을 나누어 각 평가항목의 정량화된 점수에 따라 그 위치에 점을 찍고 평가항목간 점을 이어 선으로 만들어 항목 간 균형을 한눈에 볼 수 있도록 해주는 차트입니다. 여러 측정 목표를 함께 겹쳐 놓아 비교하기에 편리하고 각 항목 간 비율뿐만 아니라 균형과 경향을 직관적으로 알 수 있어 편리함을 제공해주는 차트입니다. 
+
+
+
+
+```R
+> set.seed(99)
+> data <- as.data.frame(matrix( sample( 0:20 , 15 , replace=F) , ncol=5))
+> colnames(data) <- c("math" , "english" , "biology" , "music" , "R-coding" )
+> rownames(data) <- paste("mister" , letters[1:3] , sep="-")
+> data
+         math english biology music R-coding
+mister-a   12      17      10    19        1
+mister-b    2       9       4     6       16
+mister-c   13      15      18     5       20
+```
+
+
+<h5>방사형 차트 그리기/h5>
+
+ 
+```R
+#색깔설정
+> colors_border=c( rgb(0.2,0.5,0.5,0.9), rgb(0.8,0.2,0.5,0.9) , rgb(0.7,0.5,0.1,0.9) )
+> colors_in=c( rgb(0.2,0.5,0.5,0.4), rgb(0.8,0.2,0.5,0.4) , rgb(0.7,0.5,0.1,0.4) )
+
+# 방사형 차트
+> radarchart( data  , axistype=1 , 
++   #custom polygon
++   pcol=colors_border , pfcol=colors_in , plwd=4 , plty=1,
++   #custom the grid
++   cglcol="grey", cglty=1, axislabcol="grey", caxislabels=seq(0,20,5), cglwd=0.8,
++   #custom labels
++   vlcex=0.8 
++ )
+
+# 범례추가
+> legend(x=0.7, y=1, legend = rownames(data[-c(1,2),]), bty = "n", pch=20 ,
++        col=colors_in , text.col = "grey", cex=1.2, pt.cex=3)
+
+```
+
+<h3>요약</h3>
+```R
+- 방사형 차트(Radar Chart)는  평가항목간 점을 이어 선으로 만들어 항목 간 균형을 한눈에 볼 수 있도록 해주는 차트임. 
+
+-R에서 방사형 차트를 그릴 수 함수는  fmsb 패키지의 radarchart() 함수가 있음
+
+- 방사형 차트를 그릴 때, 축의 최대값, 최소값 설정은 maxmin 인자와 데이터 삽입을 통해 가능
+
+​
+```
+
+
+
+
+
 <h2>[05월 18일] 학습내용</h2>
 
 ## 
